@@ -71,6 +71,26 @@ it('resets temperature to 20', ()=> {
 
 })
 
+it('shows current energy usage as low-usage when below 18 ', () => {
+  for (let i = 1; i <= 3; i++) {
+    thermostat.downTemperature()
+  }
+  expect(thermostat.currentEnergyUsage()).toEqual("low-usage")
+});
 
+it('shows current energy usage as medium-usage when 25 ', () => {
+  for (let i = 1; i <= 5; i++) {
+    thermostat.upTemperature()
+  }
+  expect(thermostat.currentEnergyUsage()).toEqual("medium-usage")
+});
+
+it('shows current energy usage as high-usage when over 25 ', () => {
+  thermostat.switchPowerSavingModeOff();
+  for (let i = 1; i <= 6; i++) {
+    thermostat.upTemperature()
+  }
+  expect(thermostat.currentEnergyUsage()).toEqual("high-usage")
+});
 
 });
