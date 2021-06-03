@@ -21,4 +21,12 @@ it('decreases temperature with a down function', () => {
   thermostat.downTemperature();
   expect(thermostat.getCurrentTemperature()).toEqual(19);
 });
+
+it('has a minimum temperature od 10 degrees', () => {
+  for (let i = 1; i <= 11; i++) {
+    thermostat.downTemperature()
+  }
+  expect(thermostat.getCurrentTemperature()).toEqual(10);
+});
+
 });
