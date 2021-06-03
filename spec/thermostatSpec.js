@@ -29,4 +29,33 @@ it('has a minimum temperature od 10 degrees', () => {
   expect(thermostat.getCurrentTemperature()).toEqual(10);
 });
 
+it('power saving mode defaults to on', ()=> {
+  expect(thermostat.isPowerSavingModeOn()).toBe (true);
+
+})
+
+it('power saving mode can switch off', ()=> {
+  thermostat.switchPowerSavingModeOff();
+  expect(thermostat.isPowerSavingModeOn()).toBe (false);
+
+})
+
+it('power saving mode can switch back on', ()=> {
+  thermostat.switchPowerSavingModeOn();
+  expect(thermostat.isPowerSavingModeOn()).toBe (true);
+
+})
+
+
+
+
+// it('has a default max temperature of 25 degrees', () => {
+//   for (let i = 1; i <= 6; i++) {
+//     thermostat.upTemperature()
+//   }
+//   expect(thermostat.getCurrentTemperature()).toEqual(25);
+
+// })
+
+
 });
