@@ -5,4 +5,13 @@ class Thermostat {
   getCurrentTemperature() {
     return this.temperature
   }
+
+  upTemperature(){
+    this.temperature += 1
+    
+  }
+
+  downTemperature() {
+    this.temperature -= 1
+  }
 }
