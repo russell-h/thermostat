@@ -61,4 +61,16 @@ it('has a max temp of 32 degrees when power saving mode is off', () => {
   expect(thermostat.getCurrentTemperature()).toEqual(32);
 });
 
+it('resets temperature to 20', ()=> {
+  for (let i = 1; i <= 2; i++) {
+  thermostat.upTemperature()
+  }
+  thermostat.reset()
+
+  expect(thermostat.getCurrentTemperature()).toEqual(20);
+
+})
+
+
+
 });
