@@ -46,16 +46,19 @@ it('power saving mode can switch back on', ()=> {
 
 })
 
+it('has a maximum temperature of 25 degrees when power saving mode is on', () => {
+  for (let i = 1; i <= 6; i++) {
+    thermostat.upTemperature()
+  }
+  expect(thermostat.getCurrentTemperature()).toEqual(25);
+});
 
-
-
-// it('has a default max temperature of 25 degrees', () => {
-//   for (let i = 1; i <= 6; i++) {
-//     thermostat.upTemperature()
-//   }
-//   expect(thermostat.getCurrentTemperature()).toEqual(25);
-
-// })
-
+it('has a max temp of 32 degrees when power saving mode is off', () => {
+  thermostat.switchPowerSavingModeOff();
+  for (let i = 1; i <= 13; i++) {
+    thermostat.upTemperature()
+  }
+  expect(thermostat.getCurrentTemperature()).toEqual(32);
+});
 
 });
